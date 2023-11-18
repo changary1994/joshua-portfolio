@@ -3,9 +3,75 @@
     <div class="diagonal-box"></div>
   </div>
   <h1 class="card-title">Socials.</h1>
-  <div class="card-body"></div>
+  <div class="card-body">
+    <div class="button-wrapper">
+      <font-awesome-icon
+        class="social-icon"
+        icon="fa-brands fa-twitter"
+        size="3x"
+        :bounce="hoverTwitter"
+        @mouseover="handleHover('twitter')"
+        @mouseleave="handleUnhover('twitter')"
+      ></font-awesome-icon>
+      <font-awesome-icon
+        class="social-icon"
+        icon="fa-brands fa-linkedin"
+        size="3x"
+        :bounce="hoverLinkedin"
+        @mouseover="handleHover('linkedin')"
+        @mouseleave="handleUnhover('linkedin')"
+      ></font-awesome-icon>
+      <font-awesome-icon
+        class="social-icon"
+        icon="fa-solid fa-envelope"
+        size="3x"
+        :bounce="hoverEmail"
+        @mouseover="handleHover('email')"
+        @mouseleave="handleUnhover('email')"
+      ></font-awesome-icon>
+    </div>
+  </div>
 </template>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const hoverTwitter = ref(false)
+const hoverLinkedin = ref(false)
+const hoverEmail = ref(false)
+
+const handleHover = (val: string) => {
+  switch (val) {
+    case 'twitter':
+      hoverTwitter.value = true
+      break
+    case 'linkedin':
+      hoverLinkedin.value = true
+      break
+    case 'email':
+      hoverEmail.value = true
+      break
+    default:
+      break
+  }
+}
+
+const handleUnhover = (val: string) => {
+  switch (val) {
+    case 'twitter':
+      hoverTwitter.value = false
+      break
+    case 'linkedin':
+      hoverLinkedin.value = false
+      break
+    case 'email':
+      hoverEmail.value = false
+      break
+    default:
+      break
+  }
+}
+</script>
 <style scoped>
 .contact-container-header {
   overflow: hidden;
@@ -32,13 +98,19 @@
   overflow: visible;
   margin: auto;
   margin-top: 40px;
-  /* box-shadow:
-    -5px 0 5px -5px rgba(0, 0, 0, 0.5),
-    5px 0 5px -5px rgba(0, 0, 0, 0.5),
-    0 5px 5px -5px rgba(0, 0, 0, 0.5); */
   box-shadow:
     -10px 0 15px -10px rgba(0, 0, 0, 0.3),
     10px 0 15px -10px rgba(0, 0, 0, 0.3),
     0 20px 20px -15px rgba(0, 0, 0, 0.3);
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 35%;
+}
+.social-icon {
+  cursor: pointer;
 }
 </style>
