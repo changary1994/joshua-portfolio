@@ -15,8 +15,6 @@
 import { Carousel, Pagination, Navigation, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
-
-const apple = 1
 </script>
 
 <style scoped>
