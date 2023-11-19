@@ -14,5 +14,12 @@
   margin-left: 0;
   margin-right: 0;
   box-shadow: 12px 20px 8px -8px gray;
+  transition: all 0.5s ease;
+}
+
+.card-container:hover {
+  width: 450px;
+  height: 680px;
+  padding: 25px;
 }
 </style>

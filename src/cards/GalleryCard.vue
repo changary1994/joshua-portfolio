@@ -2,9 +2,14 @@
   <div class="about diagonal-box">
     <div class="content">
       <h1 class="card-title">Work.</h1>
+      <div class="card-body"><CarouselComponent></CarouselComponent></div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import CarouselComponent from '@/components/CarouselComponent.vue'
+</script>
 
 <style scoped>
 .diagonal-box {
@@ -24,5 +29,11 @@
   position: absolute;
   top: 60px;
   right: 30px;
+}
+
+.card-body {
+  height: 600px;
+  position: relative;
+  top: 140px;
 }
 </style>
