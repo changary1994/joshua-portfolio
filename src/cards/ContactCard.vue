@@ -2,7 +2,9 @@
   <div class="contact-container-header">
     <div class="diagonal-box"></div>
   </div>
-  <h1 class="card-title">Socials.</h1>
+  <div class="card-title-wrapper">
+    <h2 class="card-title">Socials</h2>
+  </div>
   <div class="card-body">
     <div class="button-wrapper">
       <font-awesome-icon
@@ -87,7 +89,8 @@ const handleUnhover = (val: string) => {
 }
 
 .card-title {
-  padding: 20px;
+  /* padding: 20px; */
+  margin-left: 30px;
   margin-top: 10px;
 }
 

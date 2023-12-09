@@ -3,3 +3,7 @@
 body {
   font-family: 'Helvetica-Nue', sans-serif;
 }
+
+h2 {
+  font-weight: 600 !important;
+}

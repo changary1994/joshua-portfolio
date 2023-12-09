@@ -1,7 +1,9 @@
 <template>
   <div class="about diagonal-box">
     <div class="content">
-      <h1 class="card-title">Work.</h1>
+      <div class="card-title-wrapper">
+        <h2 class="card-title">Work</h2>
+      </div>
       <div class="card-body"><CarouselComponent></CarouselComponent></div>
     </div>
   </div>
@@ -28,7 +30,8 @@ import CarouselComponent from '@/components/CarouselComponent.vue'
 .card-title {
   position: absolute;
   top: 60px;
-  right: 30px;
+  left: 30px;
+  /*  right: 30px; */
 }
 
 .card-body {
