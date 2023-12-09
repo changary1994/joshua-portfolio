@@ -1,16 +1,13 @@
 <template>
   <div class="card-container-wrapper">
-    <CardComponent><AboutCard></AboutCard></CardComponent>
-    <CardComponent><GalleryCard></GalleryCard></CardComponent>
-    <CardComponent><ContactCard></ContactCard></CardComponent>
+    <AboutCard class="about-card"></AboutCard>
+    <GalleryCard></GalleryCard>
   </div>
 </template>
 
 <script setup lang="ts">
-import CardComponent from '@/components/CardComponent.vue'
 import AboutCard from '@/cards/AboutCard.vue'
 import GalleryCard from '@/cards/GalleryCard.vue'
-import ContactCard from '@/cards/ContactCard.vue'
 </script>
 
 <style scoped>
@@ -20,6 +17,6 @@ import ContactCard from '@/cards/ContactCard.vue'
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
+  margin-left: 100px;
 }
 </style>

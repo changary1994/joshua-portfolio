@@ -1,43 +1,45 @@
 <template>
-  <div class="contact-container-header">
-    <div class="diagonal-box"></div>
-  </div>
-  <div class="card-title-wrapper">
-    <h2 class="card-title">Socials</h2>
-  </div>
-  <div class="card-body">
-    <div class="button-wrapper">
-      <a class="social-icon" href="https://twitter.com/josh_chu74" target="_blank">
-        <font-awesome-icon
-          icon="fa-brands fa-twitter"
-          size="3x"
-          :bounce="hoverTwitter"
-          @mouseover="handleHover('twitter')"
-          @mouseleave="handleUnhover('twitter')"
-        ></font-awesome-icon>
-      </a>
-      <a
-        class="social-icon"
-        href="https://www.linkedin.com/in/joshua-chu-845a79162/"
-        target="_blank"
-      >
-        <font-awesome-icon
-          icon="fa-brands fa-linkedin"
-          size="3x"
-          :bounce="hoverLinkedin"
-          @mouseover="handleHover('linkedin')"
-          @mouseleave="handleUnhover('linkedin')"
-        ></font-awesome-icon>
-      </a>
-      <a class="social-icon" @click="copyTextToClipboard">
-        <font-awesome-icon
-          icon="fa-solid fa-envelope"
-          size="3x"
-          :bounce="hoverEmail"
-          @mouseover="handleHover('email')"
-          @mouseleave="handleUnhover('email')"
-        ></font-awesome-icon
-      ></a>
+  <div class="contact">
+    <div class="contact-container-header">
+      <div class="diagonal-box"></div>
+    </div>
+    <div class="card-title-wrapper">
+      <h2 class="card-title">Socials</h2>
+    </div>
+    <div class="card-body">
+      <div class="button-wrapper">
+        <a class="social-icon" href="https://twitter.com/josh_chu74" target="_blank">
+          <font-awesome-icon
+            icon="fa-brands fa-twitter"
+            size="3x"
+            :bounce="hoverTwitter"
+            @mouseover="handleHover('twitter')"
+            @mouseleave="handleUnhover('twitter')"
+          ></font-awesome-icon>
+        </a>
+        <a
+          class="social-icon"
+          href="https://www.linkedin.com/in/joshua-chu-845a79162/"
+          target="_blank"
+        >
+          <font-awesome-icon
+            icon="fa-brands fa-linkedin"
+            size="3x"
+            :bounce="hoverLinkedin"
+            @mouseover="handleHover('linkedin')"
+            @mouseleave="handleUnhover('linkedin')"
+          ></font-awesome-icon>
+        </a>
+        <a class="social-icon" @click="copyTextToClipboard">
+          <font-awesome-icon
+            icon="fa-solid fa-envelope"
+            size="3x"
+            :bounce="hoverEmail"
+            @mouseover="handleHover('email')"
+            @mouseleave="handleUnhover('email')"
+          ></font-awesome-icon
+        ></a>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +47,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { toast } from 'vue3-toastify'
+
+const emit = defineEmits(['flipCard'])
+
+function flipCard() {
+  emit('flipCard')
+}
 
 const hoverTwitter = ref(false)
 const hoverLinkedin = ref(false)
@@ -109,6 +117,19 @@ const copyTextToClipboard = () => {
 }
 </script>
 <style scoped>
+.contact {
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+  height: 630px;
+  border-radius: 20px;
+  margin: auto;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: 12px 20px 8px -8px gray;
+  transition: all 0.5s ease;
+  perspective: 1000px;
+}
+
 .contact-container-header {
   overflow: hidden;
   height: 180px;
@@ -135,10 +156,7 @@ const copyTextToClipboard = () => {
   overflow: visible;
   margin: auto;
   margin-top: 40px;
-  box-shadow:
-    -10px 0 15px -10px rgba(0, 0, 0, 0.3),
-    10px 0 15px -10px rgba(0, 0, 0, 0.3),
-    0 20px 20px -15px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0px 0 0px 2px rgba(0, 0, 0, 0.1); */
 }
 
 .button-wrapper {
