@@ -17,9 +17,9 @@
   transition: all 0.5s ease;
 }
 
-.card-container:hover {
+/* .card-container:hover {
   width: 450px;
   height: 680px;
   padding: 25px;
-}
+} */
 </style>

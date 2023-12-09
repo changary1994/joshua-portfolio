@@ -7,36 +7,44 @@
   </div>
   <div class="card-body">
     <div class="button-wrapper">
-      <font-awesome-icon
+      <a class="social-icon" href="https://twitter.com/josh_chu74" target="_blank">
+        <font-awesome-icon
+          icon="fa-brands fa-twitter"
+          size="3x"
+          :bounce="hoverTwitter"
+          @mouseover="handleHover('twitter')"
+          @mouseleave="handleUnhover('twitter')"
+        ></font-awesome-icon>
+      </a>
+      <a
         class="social-icon"
-        icon="fa-brands fa-twitter"
-        size="3x"
-        :bounce="hoverTwitter"
-        @mouseover="handleHover('twitter')"
-        @mouseleave="handleUnhover('twitter')"
-      ></font-awesome-icon>
-      <font-awesome-icon
-        class="social-icon"
-        icon="fa-brands fa-linkedin"
-        size="3x"
-        :bounce="hoverLinkedin"
-        @mouseover="handleHover('linkedin')"
-        @mouseleave="handleUnhover('linkedin')"
-      ></font-awesome-icon>
-      <font-awesome-icon
-        class="social-icon"
-        icon="fa-solid fa-envelope"
-        size="3x"
-        :bounce="hoverEmail"
-        @mouseover="handleHover('email')"
-        @mouseleave="handleUnhover('email')"
-      ></font-awesome-icon>
+        href="https://www.linkedin.com/in/joshua-chu-845a79162/"
+        target="_blank"
+      >
+        <font-awesome-icon
+          icon="fa-brands fa-linkedin"
+          size="3x"
+          :bounce="hoverLinkedin"
+          @mouseover="handleHover('linkedin')"
+          @mouseleave="handleUnhover('linkedin')"
+        ></font-awesome-icon>
+      </a>
+      <a class="social-icon" @click="copyTextToClipboard">
+        <font-awesome-icon
+          icon="fa-solid fa-envelope"
+          size="3x"
+          :bounce="hoverEmail"
+          @mouseover="handleHover('email')"
+          @mouseleave="handleUnhover('email')"
+        ></font-awesome-icon
+      ></a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { toast } from 'vue3-toastify'
 
 const hoverTwitter = ref(false)
 const hoverLinkedin = ref(false)
@@ -72,6 +80,32 @@ const handleUnhover = (val: string) => {
     default:
       break
   }
+}
+
+const textToCopy = ref('joshua.chu74@gmail.com')
+
+const copyTextToClipboard = () => {
+  // Access the text value using .value for ref variables
+  const text = textToCopy.value
+
+  // Create a temporary input element
+  const tempInput = document.createElement('textarea')
+  tempInput.value = text
+
+  // Append the input element to the body
+  document.body.appendChild(tempInput)
+
+  // Select the text inside the input element
+  tempInput.select()
+
+  // Execute copy command
+  document.execCommand('copy')
+
+  // Remove the temporary input element
+  document.body.removeChild(tempInput)
+
+  // Optionally, provide feedback to the user
+  toast('Copied to clipboard: ' + text)
 }
 </script>
 <style scoped>
@@ -114,6 +148,8 @@ const handleUnhover = (val: string) => {
   top: 35%;
 }
 .social-icon {
+  color: black;
   cursor: pointer;
+  text-decoration: none;
 }
 </style>
